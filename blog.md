@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Research Blog
+title: Blog
 permalink: /blog/
 ---
 
-Research papers blog.
+A review of the research papers I find interesting.
 
 <ul class="listing">
 {% for post in site.posts %}
