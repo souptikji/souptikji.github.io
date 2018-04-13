@@ -10,6 +10,8 @@ Graduate Student (MS) <br>
 Carnegie Mellon University, Pittsburgh (PA) <br>
 
 <em>Email: </em><a href="mailto:souptiksen@cmu.edu">souptiksen@cmu.edu</a> <br>
+<em>LinkedIn: </em><a href="https://www.linkedin.com/in/souptiksen/">souptiksen</a> <br>
+<em>Facebook: </em><a href="https://www.facebook.com/souptikji">souptikji</a> <br>
 <em>Mailing address:<br> </em>Information Networking Institute<br> Carnegie Mellon University<br> 5000 Forbes Avenue<br>Pittsburgh, PA 15213 <br>
 <!-- <p><a href="http://doodle.com/dhawaljoh" target="_blank">Meet me!</a> | <a href="http://flask.io/yoUm1" target="_blank">Assign me a task!</a> (please let me know you've added something!)</p> -->
 <hr width="600px">
@@ -39,8 +41,8 @@ I am Graduate student (MS), working with <a href="http://www.andrew.cmu.edu/user
 <a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 
 <p align="justify" style="max-width:575px">
-Broadly, my interests lie in problems relating to Big Data, Large scale Machine Learning and Distributed Systems. My current research on optimizing the performance of Large scale Machine Learning systems, where training is performed by running stochastic gradient descent (SGD) in a distributed fashion using a central parameter server and multiple servers (learners). Synchronization delays due to straggling learners can significantly increase the run-time of the training job. We working on new algorithms that try to mitigate straggler effects in Synchronous SGD, whilst keeping a decent gradient quality and convergence time. Along with that we are also working on delayed gradient accumulation to reduce communication overhead in Distributed Synchronous SGD. <br>
-In Summer 2017, I was a Software Engineering intern with LinkedIn's Big Data team, where I wrote a data tooling library in Scala for query translation from Hive to Spark. 
+Broadly, my interests lie in problems relating to Big Data, Large scale Machine Learning and Distributed Systems. My current research on optimizing the performance of <a href="http://www.andrew.cmu.edu/user/gaurij/Research.html" target="_blank">Large-scale Machine Learning systems</a>, where training is performed by running stochastic gradient descent (SGD) in a distributed fashion using a central parameter server and multiple servers (learners). In such systems, synchronization delays due to straggling learners can significantly increase the run-time of the training job. We working on new algorithms that try to mitigate straggler effects in Synchronous SGD, whilst keeping a decent gradient quality and convergence time. Along with that we are also working on delayed gradient accumulation to reduce communication overhead in Distributed Synchronous SGD. <br>
+In Summer 2017, I was a Software Engineering intern with LinkedIn's <a href="https://engineering.linkedin.com/teams/data" target="_blank">Data team </a>, where I wrote a data tooling library in Scala for query translation from Hive to Spark. 
 </p>
 
 ## Updates
@@ -48,22 +50,22 @@ In Summer 2017, I was a Software Engineering intern with LinkedIn's Big Data tea
 <table style="white-space: nowrap;">
 
     <tr>
-    <td width="75"><b>New!</b></td>
+    <td width="90"><b>New!</b></td>
     <td>Summer 2018 at Parallel Data Lab, working on <a href="http://www.andrew.cmu.edu/user/gaurij/Research.html" target="_blank">Distributed Machine Learning</a></td>
     </tr>
 
     <tr>
-    <td width="75"><b>Spring, 2018</b></td>
+    <td width="90"><b>Spring 2018</b></td>
     <td>Research Assistant at <a href="http://www.andrew.cmu.edu/user/gaurij/Group.html" target="_blank">Prof. Gauri Joshi's group</a> at the Parallel Data Lab.</td>
     </tr>
 
     <tr>
-    <td width="75"><b>Fall, 2017</b></td>
+    <td width="90"><b>Fall 2017</b></td>
     <td>Teaching Assistant for <a href="https://www.cs.cmu.edu/~jianma/15351/index.html" target="_blank">Algorthms and Advanced Data Structures</a> offered by <a href="https://www.cs.cmu.edu/" target="_blank">CMU's CS dept.</a></td>
     </tr>
 
     <tr>
-    <td><b>Summer 2017</b></td>
+    <td width="90"><b>Summer 2017</b></td>
     <td>Software Engineer Intern with <a href="https://engineering.linkedin.com/teams/data" target="_blank">LinkedIn's Data team</a> in Sunnyvale, CA.</td>
     </tr>
 </table>
