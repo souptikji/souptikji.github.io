@@ -12,7 +12,6 @@ Carnegie Mellon University, Pittsburgh (PA) <br>
 <em>Email: </em><a href="mailto:souptiksen@cmu.edu">souptiksen@cmu.edu</a> <br>
 <em>LinkedIn: </em><a href="https://www.linkedin.com/in/souptiksen/">souptiksen</a> <br>
 <em>Facebook: </em><a href="https://www.facebook.com/souptikji">souptikji</a> <br>
-<em>Mailing address:<br> </em>Information Networking Institute<br> Carnegie Mellon University<br> 5000 Forbes Avenue<br>Pittsburgh, PA 15213 <br>
 <!-- <p><a href="http://doodle.com/dhawaljoh" target="_blank">Meet me!</a> | <a href="http://flask.io/yoUm1" target="_blank">Assign me a task!</a> (please let me know you've added something!)</p> -->
 <hr width="600px">
 
