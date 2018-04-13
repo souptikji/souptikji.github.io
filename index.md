@@ -36,9 +36,9 @@ I am Graduate student (MS), working with <a href="http://www.andrew.cmu.edu/user
 
 ## Research Interests
 
-<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" height="200" width="200" align="right"></a>
+<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" height="200" width="275" align="right"></a>
 
-<p align="left" style="max-width:600px">
+<p align="justify" style="max-width:600px">
 Broadly, my interests lie in problems relating to Big Data, Large scale Machine Learning and Distributed Systems. My current research on optimizing the performance of Large scale Machine Learning systems, where training is performed by running stochastic gradient descent (SGD) in a distributed fashion using a central parameter server and multiple servers (learners). Synchronization delays due to straggling learners can significantly increase the run-time of the training job. We working on new algorithms that try to mitigate straggler effects in Synchronous SGD, whilst keeping a decent gradient quality and convergence time. Along with that we are also working on delayed gradient accumulation to reduce communication overhead in Distributed Synchronous SGD. <br>
 In Summer 2017, I was a Software Engineering intern with LinkedIn's Big Data team, where I wrote a data tooling library in Scala for query translation from Hive to Spark. 
 </p>
