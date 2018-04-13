@@ -20,14 +20,14 @@ University of California, Santa Cruz <br>
 
 <!-- <a href="http://www.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" style="width:275px;" align="right"></a> -->
 
-<a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank"><img src="images/pdl-mascot.jpg" alt="CMU" style="width:275px;" align="right"></a>
+<a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank"><img src="images/pdl-mascot.jpg" alt="CMU" style="width:200px;" align="right"></a>
 
 <p align="justify" style="max-width:600px">
 I am Graduate student, working with <a href="http://www.andrew.cmu.edu/user/gaurij/" target="_blank">Prof. Gauri Joshi</a> in the <a href="http://www.andrew.cmu.edu/user/gaurij/Research.html" target="_blank">Distributed Machine Learning</a> project at <a href="http://www.pdl.cmu.edu/" target="_blank">Parallel Data Lab</a>. In 2017, I spent at awesome summer at LinkedIn working with the <a href="https://engineering.linkedin.com/teams/data" target="_blank">Data team</a>. I graduated from <em><a class="tosu" href="https://bitmesra.ac.in/" target="_blank">Birla Institute of Technology</a></em>in 2013, followed by a brief stint as a Software Engineer at <em><a class="tosu" href="https://www.ca.com/us.html" target="_blank">CA Technologies</a></em> in Hyderabad and Toronto.</p>
 
 
 
-<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" style="width:275px;" align="right"></a>
+<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" style="width:200px;" align="right"></a>
 
 ## Research Interests
 <p align="justify" style="max-width:600px">
