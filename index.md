@@ -17,7 +17,7 @@ University of California, Santa Cruz <br>
 <hr style="height:10pt; visibility:hidden;" />
 
 
-<a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank"><img src="images/pdl-mascot.jpg" alt="CMU" height="200" width="200" align="right"></a>
+<a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank"><img src="images/pdl-mascot.jpg" alt="CMU" height="200" width="275" align="right"></a>
 
 ## About Me
 
