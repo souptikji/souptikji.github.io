@@ -6,8 +6,8 @@ layout: default
 
 # Souptik Sen  <a href="/images/linkedin-profile.png" target="_blank"><img src="images/linkedin-profile.png" alt="Souptik Sen" style="width:275px;" align="right"></a>
 Graduate Student (MS) <br>
-Parallel Data Lab <br>
-University of California, Santa Cruz <br>
+<a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank">Parallel Data Lab</a> <br>
+Carnegie Mellon University, Pittsburgh (PA) <br>
 
 <em>Email: </em><a href="mailto:souptiksen@cmu.edu">souptiksen@cmu.edu</a> <br>
 <em>Mailing address:<br> </em>Information Networking Institute<br> Carnegie Mellon University<br> 5000 Forbes Avenue<br>Pittsburgh, PA 15213 <br>
@@ -36,7 +36,7 @@ I am Graduate student (MS), working with <a href="http://www.andrew.cmu.edu/user
 
 ## Research Interests
 
-<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" height="200" width="275" align="right"></a>
+<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 
 <p align="justify" style="max-width:600px">
 Broadly, my interests lie in problems relating to Big Data, Large scale Machine Learning and Distributed Systems. My current research on optimizing the performance of Large scale Machine Learning systems, where training is performed by running stochastic gradient descent (SGD) in a distributed fashion using a central parameter server and multiple servers (learners). Synchronization delays due to straggling learners can significantly increase the run-time of the training job. We working on new algorithms that try to mitigate straggler effects in Synchronous SGD, whilst keeping a decent gradient quality and convergence time. Along with that we are also working on delayed gradient accumulation to reduce communication overhead in Distributed Synchronous SGD. <br>
