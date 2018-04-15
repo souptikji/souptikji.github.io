@@ -50,5 +50,5 @@ There are some other optimizations too that Flash performs. Flash performs appli
 
 ## Questions
 <p>
-a.  How will the flash paper fare in today's world, where the content is increasingly dynamic?
+How will the flash paper fare in today's world, where the content is increasingly dynamic?
 </p>

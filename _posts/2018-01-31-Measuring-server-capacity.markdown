@@ -1,28 +1,35 @@
 ---
 layout: post
-title:  "End-to-End Arguments in System Design: Review"
-date:   2018-04-13 05:00:00
+title:  "Measuring the capacity of a Web server under realistic loads: Review"
+date:   2018-01-29 08:00:00
 author: Souptik Sen
 ---
 
 ## Summary
 <p>
-Today I will review the seminal <b>End-to-End Arguments in System Design</b> paper by J. Saltzer, D. Reed, and D. Clark. Engineering computer systems is all about tradeoffs we need to make to optimize one parameter over the other. This paper discusses a design principle for distributed systems, called the end-to-end argument and gives some examples for real world systems where this design principle is beneficial. The end to end argument states that fault tolerance functions placed at the bottom levels of a system may be of little value when compared with the cost of providing them at that low level. Thus it is better if these functions are placed on the edges. 
+This paper examines the current techniques for measuring capacity of web server in detail and exposes the limitations for those techniques. To overcome this problem, the authors have proposed a new model for synthetic generation of realistic HTTP client requests and using that model they have measured the performance of Web Servers under realistic web traffic load.  First, the paper mentions drawbacks in the present technique- the testbed used for testing the server is not able to generate an excess load. Further, testbed computers used a fix style for generating requests- the think time is fixed. In reality there are a large number of clients which generate bursty traffic (as their think times depend on a variety of factors and have large mean and variance) and peak request rates which exceed the server's capacity. Thus this simple method used for generating synthetic request is not able to model the bursty traffic pattern. Also, if the number of clients is increased, it leads to a client side bottleneck rather than the expected server side bottleneck. All these issues prove that present web-server performance evaluation techniques are not sufficient and thus there is a scope of improvement.
 </p>
 
 <p>
-The first example discussed in detail in this paper is regarding a careful file transfer system. At the 2 endpoints are the (application level) file transfer app at the sender and receiver ends. The flow of control is as follows- the file transfer app at the sender requests the OS for the file. The sender OS reads the file from its File system and returns it to the app. The sender app transfers the file over the communication network to the receiver app. The receiver file transfer app sends the file to the receiver OS which writes to its file system. We might think that if we put a lot of effort for reliability at lower levels (the data communication layer) maybe by using TCP, then it is not important to take fault tolerance measures within the application layer. But on careful analysis, we can see that failure of file transmission can occur due to faulty app, faulty local file system, corrupted file, faulty storage component at either end, or even due to flaky communication. Agreed that some low level effort may have an impact on application performance. We can reinforce reliability mechanisms at every possible step to reduce the probability of error (duplicate copies, timeout and retry, OS crash recovery, file system crash recovery, etc.). But the end-to-end check of the file transfer application must still be implemented no matter how reliable the communication system becomes. So the key idea is that we should not overly spend effort to get things perfect at the lower levels. Some other examples discussed in the paper are bit-error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgment.
+Then paper proposes a new scalable method for generating HTTP requests which can easily generate workload exceeding capacity of server as well as bursty workload. In this method, each client machine runs a number of scalable clients- which consists of two processes - 1) the connection establishment process that handles the HTTP request and 2) the connection handling process that handles the HTTP response. The paper describes how the processes handle the HTTP requests based on elapsed time and number of requests. This structure helps to achieve these two things- 1) shortens the TCP connection establishment time out to allow the generation of request rates beyond the capacity of the server with a reasonable number of client sockets and 2) maintains a constant number of unconnected sockets that are trying to establish new connections to ensure that the generated request rate is independent of the rate at which the server handles requests.
 </p>
 
+
 ## What I liked about this paper
-<p>The paper is a very good example of the 80-20 rule- how the 20% of effort spent of right things can help solve 80% of the problem. It provides a succinct system design principle which is applicable to most of the distributed systems, and is easy to reason about.
+<p>
+a.  The authors rigorously evaluate current methods of generating HTTP traffic and propose a new method after examining the strengths and weaknesses of other methods. The problems that arise while generating synthetic HTTP traffic have been systematically discussed and critiqued. Also they provide a good overview on the dynamics of a typical HTTP server which helps in getting some background knowledge about the problem.
+b.  The idea of scalable client that allows them to generate the requests beyond the capacity of server with reasonable number of client sockets, is pretty novel for that time and unique. Their design exploits the way TCP connections work to simulate multiple number of clients which is a very novel way of looking at this problem.
+c.  The evaluation of their system is pretty exhaustive- testing on a variety of machines and workloads. Their experiments are a good example of how a good testing scheme at scale should look like.
 </p>
 
 ## Critical comments
 <p>
-The paper is a bit dated and most of the arguments are for earlier computer systems (some of which still hold the test of time). I would like to see more examples on how these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning.
+a.  The presented method generates HTTP requests with a constant think time distribution to achieve a certain constant request rate. The authors mention that "it is possible to generate more complex request processes by adding appropriate think periods between the point where an S-Client detects a connection was established and when it next attempts to initiate another connection". However, will this truly reflect the bursty randomness of client requests?
+b.  The authors’ benchmarks don’t take into account request file types, transfer sizes and locality of reference in URLs requested.
 </p>
 
 ## Questions
 <p>
-How do these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning ?</p>
+a.  Does this method truly simulate random bursty client requests? 
+b.  How can we extend the framework further to simulate cyber attacks on servers? Like Denial-of-service attacks, SYN flooding etc.
+</p>

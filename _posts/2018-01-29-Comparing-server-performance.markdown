@@ -1,28 +1,32 @@
 ---
 layout: post
-title:  "End-to-End Arguments in System Design: Review"
-date:   2018-04-13 05:00:00
+title:  "Comparing the Performance of Web Server Architectures: Review"
+date:   2018-01-29 08:00:00
 author: Souptik Sen
 ---
 
 ## Summary
 <p>
-Today I will review the seminal <b>End-to-End Arguments in System Design</b> paper by J. Saltzer, D. Reed, and D. Clark. Engineering computer systems is all about tradeoffs we need to make to optimize one parameter over the other. This paper discusses a design principle for distributed systems, called the end-to-end argument and gives some examples for real world systems where this design principle is beneficial. The end to end argument states that fault tolerance functions placed at the bottom levels of a system may be of little value when compared with the cost of providing them at that low level. Thus it is better if these functions are placed on the edges. 
+Threads vs process is an ongoing debate in designing computer systems. Depending upon the workload, and the nature of the application, it might be better to design it in a multi-process way vs a multithreaded way or vice versa. The paper presents a thorough performance-oriented evaluation of web-server architectures comparing event-driven, thread-per-connection, and hybrid pipelined server architectures. They use the fastest available server for each architecture, apply some modifications (like using zero copy sendfile) and demonstrate the importance of properly tuning each server appropriately. They show how they modified Knot, enabling it to use sendfile system call, both in blocking and non-blocking mode. Also they modified u-server to act as a SYMPED (symmetric multiple process event-driven) server, which yields much lower CPU utilization. The tuning part is very important, because the performance of each server is affected by the number of concurrent connections and kernel threads. The authors put a lot of emphasis in making the different systems comparable by using the same programming language, and having common components for caching, hashing etc. After thoroughly testing and benchmarking, they conclude that the u-server and Watpipe have a 18% higher throughput than knot (multithreaded) server.
 </p>
 
-<p>
-The first example discussed in detail in this paper is regarding a careful file transfer system. At the 2 endpoints are the (application level) file transfer app at the sender and receiver ends. The flow of control is as follows- the file transfer app at the sender requests the OS for the file. The sender OS reads the file from its File system and returns it to the app. The sender app transfers the file over the communication network to the receiver app. The receiver file transfer app sends the file to the receiver OS which writes to its file system. We might think that if we put a lot of effort for reliability at lower levels (the data communication layer) maybe by using TCP, then it is not important to take fault tolerance measures within the application layer. But on careful analysis, we can see that failure of file transmission can occur due to faulty app, faulty local file system, corrupted file, faulty storage component at either end, or even due to flaky communication. Agreed that some low level effort may have an impact on application performance. We can reinforce reliability mechanisms at every possible step to reduce the probability of error (duplicate copies, timeout and retry, OS crash recovery, file system crash recovery, etc.). But the end-to-end check of the file transfer application must still be implemented no matter how reliable the communication system becomes. So the key idea is that we should not overly spend effort to get things perfect at the lower levels. Some other examples discussed in the paper are bit-error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgment.
-</p>
 
 ## What I liked about this paper
-<p>The paper is a very good example of the 80-20 rule- how the 20% of effort spent of right things can help solve 80% of the problem. It provides a succinct system design principle which is applicable to most of the distributed systems, and is easy to reason about.
+<p>
+a.  The authors spent very great effort to get the three different architectures to a comparable level. They changed the knot server to use the sendfile system call and implemented their own pipelined server (WatPipe) in C++. <br>
+b.  The authors demonstrated the importance of properly tuning each server to get the best results. They provide elaborate testing schemes and compare server throughput and response times for each.<br>
+c.  The authors show exact representation of results in graphs. One thing we can see is that the graphs start at X axis =0, which is different from the Flash paper where they put X=200 as the starting point, thus being able to embellish their results slightly.
 </p>
 
 ## Critical comments
 <p>
-The paper is a bit dated and most of the arguments are for earlier computer systems (some of which still hold the test of time). I would like to see more examples on how these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning.
+a.  It would be great to see how these results might differ in a multiprocessor environment. The authors mention in the paper about this – “It will be interesting to see if the current efficiencies in Capriccio can be maintained in an environment that supports multiprocessors or if such support necessarily introduces new inefficiencies.”, but don’t go into detail in explaining the results/consequences.<br>
+b.  Web server performance tests are very dependent on how often you hit the disk. But we see no discussions on this (like measuring seek rate, cache hit rate, how worn out are the disks after millions of ops).<br>
+Some Systems concepts could be explained better so that the paper is better understandable for someone who is not into OS research (e.g., how do poll and epoll work, etc.)
 </p>
 
 ## Questions
 <p>
-How do these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning ?</p>
+a.  How will the results differ if we take multiprocessor systems into account? <br>
+b.  We can see that the optimal performance of the Webservers has been achieved by carefully hand-tuning the systems manually. Can this process be automated? 
+</p>
