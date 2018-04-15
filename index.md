@@ -2,7 +2,7 @@
 layout: default
 ---
 
-
+<!-- git add . | git commit -m "changes again6" | git push myorigin-->
 
 # Souptik Sen  <a href="/images/linkedin-profile.png" target="_blank"><img src="images/linkedin-profile.png" alt="Souptik Sen" style="width:275px;" align="right"></a>
 Graduate Student (MS) <br>
