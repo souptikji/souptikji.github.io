@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "End-to-End Arguments in System Design: Review"
-date:   2018-04-13 05:00:00
+date:   2018-01-21 05:00:00
 author: Souptik Sen
 ---
 

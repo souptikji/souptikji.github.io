@@ -1,28 +1,32 @@
 ---
 layout: post
-title:  "End-to-End Arguments in System Design: Review"
-date:   2018-04-13 05:00:00
+title:  "Combined reviews for 1. The Anatomy of a Large-Scale Hypertextual Web Search Engine, and 2. The PageRank Citation Ranking: Bringing Order to the Web"
+date:   2018-02-05 08:00:00
 author: Souptik Sen
 ---
 
 ## Summary
 <p>
-Today I will review the seminal <b>End-to-End Arguments in System Design</b> paper by J. Saltzer, D. Reed, and D. Clark. Engineering computer systems is all about tradeoffs we need to make to optimize one parameter over the other. This paper discusses a design principle for distributed systems, called the end-to-end argument and gives some examples for real world systems where this design principle is beneficial. The end to end argument states that fault tolerance functions placed at the bottom levels of a system may be of little value when compared with the cost of providing them at that low level. Thus it is better if these functions are placed on the edges. 
-</p>
-
-<p>
-The first example discussed in detail in this paper is regarding a careful file transfer system. At the 2 endpoints are the (application level) file transfer app at the sender and receiver ends. The flow of control is as follows- the file transfer app at the sender requests the OS for the file. The sender OS reads the file from its File system and returns it to the app. The sender app transfers the file over the communication network to the receiver app. The receiver file transfer app sends the file to the receiver OS which writes to its file system. We might think that if we put a lot of effort for reliability at lower levels (the data communication layer) maybe by using TCP, then it is not important to take fault tolerance measures within the application layer. But on careful analysis, we can see that failure of file transmission can occur due to faulty app, faulty local file system, corrupted file, faulty storage component at either end, or even due to flaky communication. Agreed that some low level effort may have an impact on application performance. We can reinforce reliability mechanisms at every possible step to reduce the probability of error (duplicate copies, timeout and retry, OS crash recovery, file system crash recovery, etc.). But the end-to-end check of the file transfer application must still be implemented no matter how reliable the communication system becomes. So the key idea is that we should not overly spend effort to get things perfect at the lower levels. Some other examples discussed in the paper are bit-error recovery, security using encryption, duplicate message suppression, recovery from system crashes, and delivery acknowledgment.
+The first paper describes the foundations of the Google search engine. It takes us through the initial Google prototype and describes the challenges in scaling search engine to handle the massive web page repository of the Web. The 2nd paper deals with the implementation of PageRank, a method for rating Web pages using the link structure of the web. There are millions of unorganized heterogeneous web pages on the World Wide Web. This algorithm helps in determining which web page is important and relevant to the query made on the search engine.
 </p>
 
 ## What I liked about this paper
-<p>The paper is a very good example of the 80-20 rule- how the 20% of effort spent of right things can help solve 80% of the problem. It provides a succinct system design principle which is applicable to most of the distributed systems, and is easy to reason about.
+<p>
+a.  One of the key contributions of the Google founders is the PageRank- Larry and Sergey share their intuition that the link graph embedded in the web is a valuable resource for ranking the quality of web pages. This was a novel idea at that time, and probably one of those major intuitions that made Google a search engine leader.<br>
+b.  The repository of HTML pages crawled acts as the source of truth for data, and all other data structures can be rebuilt from the repository when necessary. This implicit way of doing fault tolerance has probably been inspiration to fault tolerance in lambda architecture used for big data systems.<br>
+Large scale data structures: The paper introduces some novel data structures to store and retrieve documents with as little cost as possible. Some notable ones include BigFiles, Hit lists and inverted indices.<br>
 </p>
 
 ## Critical comments
 <p>
-The paper is a bit dated and most of the arguments are for earlier computer systems (some of which still hold the test of time). I would like to see more examples on how these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning.
+a.  The Web search today is highly personalized according to your preferences. The 2nd paper does touch upon personalized pagerank but doesn't go into details.<br>
+b.  Under "Results and Performance", the author's claim of " our own experience with Google has shown it to produce better results than the major commercial search engines for most searches" is not very convincing.<br>
+c.  Paper doesn't talk about link farms which was widely used as a SEO technique in 2000s. Google Panda (2011) talks about this update which aimed to lower the rank of "low-quality sites" or "thin sites" in particular "content farms", and to return higher-quality sites near the top of the search results.<br>
 </p>
 
 ## Questions
 <p>
-How do these principles hold up for the design for today’s large scale distributed systems like streaming services (Kafka), big data systems, parameter servers for large scale machine learning ?</p>
+a.  How can we achieve personalized pagerank/ search?<br>
+b.  Can the idea of pagerank be extended on social network graphs? To detect maybe spam profiles?<br>
+c.  How do we test the search quality (accuracy/performance) of a search engine? Is there a standard performance metric like ImageNet in the case of image recognition tasks?<br>
+</p>

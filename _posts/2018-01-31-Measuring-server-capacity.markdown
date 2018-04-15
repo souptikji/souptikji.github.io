@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Measuring the capacity of a Web server under realistic loads: Review"
-date:   2018-01-29 08:00:00
+date:   2018-01-31 08:00:00
 author: Souptik Sen
 ---
 
@@ -17,19 +17,19 @@ Then paper proposes a new scalable method for generating HTTP requests which can
 
 ## What I liked about this paper
 <p>
-a.  The authors rigorously evaluate current methods of generating HTTP traffic and propose a new method after examining the strengths and weaknesses of other methods. The problems that arise while generating synthetic HTTP traffic have been systematically discussed and critiqued. Also they provide a good overview on the dynamics of a typical HTTP server which helps in getting some background knowledge about the problem.
-b.  The idea of scalable client that allows them to generate the requests beyond the capacity of server with reasonable number of client sockets, is pretty novel for that time and unique. Their design exploits the way TCP connections work to simulate multiple number of clients which is a very novel way of looking at this problem.
+a.  The authors rigorously evaluate current methods of generating HTTP traffic and propose a new method after examining the strengths and weaknesses of other methods. The problems that arise while generating synthetic HTTP traffic have been systematically discussed and critiqued. Also they provide a good overview on the dynamics of a typical HTTP server which helps in getting some background knowledge about the problem.<br>
+b.  The idea of scalable client that allows them to generate the requests beyond the capacity of server with reasonable number of client sockets, is pretty novel for that time and unique. Their design exploits the way TCP connections work to simulate multiple number of clients which is a very novel way of looking at this problem. <br>
 c.  The evaluation of their system is pretty exhaustive- testing on a variety of machines and workloads. Their experiments are a good example of how a good testing scheme at scale should look like.
 </p>
 
 ## Critical comments
 <p>
-a.  The presented method generates HTTP requests with a constant think time distribution to achieve a certain constant request rate. The authors mention that "it is possible to generate more complex request processes by adding appropriate think periods between the point where an S-Client detects a connection was established and when it next attempts to initiate another connection". However, will this truly reflect the bursty randomness of client requests?
+a.  The presented method generates HTTP requests with a constant think time distribution to achieve a certain constant request rate. The authors mention that "it is possible to generate more complex request processes by adding appropriate think periods between the point where an S-Client detects a connection was established and when it next attempts to initiate another connection". However, will this truly reflect the bursty randomness of client requests?<br>
 b.  The authors’ benchmarks don’t take into account request file types, transfer sizes and locality of reference in URLs requested.
 </p>
 
 ## Questions
 <p>
-a.  Does this method truly simulate random bursty client requests? 
+a.  Does this method truly simulate random bursty client requests? <br>
 b.  How can we extend the framework further to simulate cyber attacks on servers? Like Denial-of-service attacks, SYN flooding etc.
 </p>
