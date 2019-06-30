@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "Paxos Made Live - An Engineering Perspective: Review"
+date:   2018-02-28 07:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+The paper talks about the author's experiences of building a fault-tolerant database using the Paxos consensus algorithm.  They describe the algorithmic and engineering problems encountered, and the solutions they found for them. The design makes use of the Multi-Paxos optimization as well as introducing a few novel mechanisms for realizing Paxos such as client-triggered snapshots.
+</p>
+<p>
+Chubby, a distributed locking mechanism used at Google, uses a Paxos implementation to provide consensus amongst replicas. Two of the important designs in implementation of Paxos for Chubby are master leases and snapshots. Master leases address the issue of serving read requests from the master's copy of the data structure. Original Paxos requires serializing all read operations, an approach that is too expensive for Chubby because it does not allow the parallelism. The snapshot mechanism included in Chubby addresses the finite space limitation on log size.
+</p>
+<p>
+The paper also talks about the robust testing strategy to ensure the functionality of the system and gives the throughput benchmarks.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The paper talks about the unexpected failures the authors had to deal with. This is a valuable insight into how a large scale system is built, especially taking us through some of the mistakes which they made and how they fixed it.<br>
+b.  The mechanism of snapshots and providing leases is very innovative and fits the use case perfectly.<br>
+c.  In spite of building a fault-tolerant system using Paxos it doesn't have poor performance due to all the extra overheads. They demonstrate that their designed system has significant performance improvements over their previous system that did not utilize Paxos.
+</p>
+
+## Critical comments
+<p>
+a.  Even though the performance of the system is pretty good we could trade-off a little bit of safety for speed. There is an overhead that may be caused by excessive runtime checks.<br>
+b.  The authors mention that they were not able to re-create error conditions that occur during concurrent operations.<br>
+c.  Master can become a bottleneck in the design if it is doing other CPU intensive jobs after it gets the lease.
+</p>
+
+
+## Questions
+<p>
+a.  Can Paxos be used to build some other applications other than databases? How can we leverage Paxos to build useful distributed systems?<br>
+b.  How could we trade-off a little bit of safety for speed? What can be done to ensure this?<br>
+c.  Master can become a bottleneck in the design if it is doing other CPU intensive jobs after it gets the lease. How can we mitigate this?
+</p>

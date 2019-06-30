@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing: Review"
+date:   2018-02-26 05:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Manipulating big data distributed over a cluster using functional concepts is rampant in industry, and is arguably one of the first widespread industrial uses of functional ideas. This is evidenced by the popularity of MapReduce and Hadoop, and most recently Apache Spark, a fast, in-memory distributed collections framework written in Scala. Spark shows how the data parallel paradigm can be extended to the distributed case. Spark implements a distributed data parallel model called Resilient Distributed Datasets (RDDs). RDDs seem a lot like immutable sequential or parallel Scala collections with the added knowledge that your data is distributed across several machines. Most operations on RDDs, like Scala's immutable List, and Scala's parallel collections, are higher-order functions. Transformations and Actions are the 2 types of operations available on Spark RDDs similar to Transformers/ Accessors in Scala. Transformations: Return new RDDs as results. They are lazy, their result RDD is not immediately computed. Examples: map, filter, flatMap, distinct. Actions: Compute a result on an RDD, and either returned or saved to HDFS. They are eager, their result is immediately computed. Eg: count, reduce, foreach, saveAsTextFile.
+</p>
+<p>
+Spark achieves fault tolerance using ideas from functional programming! Lineage graphs are the key to Fault tolerance in Spark (different from MapReduce which uses WAL). The paper also takes us through some of the use cases where Spark performs exceedingly well over MapReduce- iterative ML algorithms. This is because it doesn't suffer from the so called "disk barrier" in MR, where all intermediate data is spitted to disk.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  Spark extends the idea of manipulating big data distributed over a cluster using functional concepts a notch further by providing more expressive functionality. The API of RDDs is perfect for large scale data manipulation and it is very simple to write complex transformations (when compared to MapReduce), aside from the memory benefits.<br>
+b.  Spark achieves fault tolerance using ideas from functional programming. Lineage graphs are the key to Fault tolerance in Spark (unlike logging in Tensorflow). This idea of using immutability and then tolerating faults by replaying functional transformations over original dataset is very unique and interesting.<br>
+c.  Good collection of real world examples to explain the use case of Spark in iterative ML algorithms. 
+
+</p>
+
+## Critical comments
+<p>
+a.  The paper doesn't talk about processing massive graphs using Spark. Can Spark be an interesting use case for Graph processing at scale, over Graph processing frameworks like Pregel or specialized Graph Databases?<br>
+b.  The paper doesn’t give much clarity on scheduling algorithms used by Spark to schedule jobs on a cluster.<br>
+c.  Most of the results mentioned in the paper are measuring performance in terms of iteration time. However the gold standard in the industry is GB-hours measurement that takes into account both the time taken as well as the RAM used (cumulative).
+</p>
+
+
+## Questions
+<p>
+a.  Can Spark be an interesting use case for Graph processing at scale, over Graph processing frameworks like Pregel or specialized Graph Databases?<br>
+b.  How is lazy evaluation helpful in Spark?<br>
+c.  What kind of scheduling algorithms are used for Spark job scheduling?
+</p>

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "S4: Distributed Stream Computing Platform: Review"
-date:   2018-02-15 05:00:00
+date:   2018-02-14 05:00:00
 author: Souptik Sen
 ---
 
