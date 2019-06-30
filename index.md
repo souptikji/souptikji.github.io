@@ -13,7 +13,11 @@ Mountain View (CA) <br>
 <em>LinkedIn: </em><a href="https://www.linkedin.com/in/souptiksen/">souptiksen</a> <br>
 <em>Facebook: </em><a href="https://www.facebook.com/souptikji">souptikji</a> <br>
 <!-- <p><a href="http://doodle.com/dhawaljoh" target="_blank">Meet me!</a> | <a href="http://flask.io/yoUm1" target="_blank">Assign me a task!</a> (please let me know you've added something!)</p> -->
-## About Me
+
+<br>
+<br>
+
+## <b>About Me</b>
 <hr width="850px">
 <hr style="height:20pt; visibility:hidden;" />
 
@@ -33,8 +37,10 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
 
 <p align="justify" style="max-width:575px">I was born and raised in Bhilai, a beautiful town in Central India which is home to India's largest integrated <a href="https://www.wikiwand.com/en/Bhilai_Steel_Plant" target="_blank">Steel plant</a>. I have a bit of wanderlust and love travelling and going on hikes, thereby exploring different environments, cultures and cuisine. My favourite getaways are places with scenic natural beauty (next on my hitlist is driving along the <a href="https://www.nationalgeographic.com/travel/road-trips/california-pacific-coast-road-trip/" target="_blank"> Pacific Coast highway</a>). On weekends, I can be found catching the latest Bollywood masala movie with friends, swimming at the <a href="https://www.calsportscenter.com/activities/dropin/open-swim/" target="_blank">California Sports Center</a> or simply lazing around in my bed (with an UberEats delivery next to me :P). I love to critique (uh... eat) food- passing judgements on how it could be better (thanks to my years of diligent watching Gordon Ramsay rip apart elaborate dishes on <a href="https://www.wikiwand.com/en/MasterChef_(American_TV_series)" target="_blank">Masterchef, USA</a>), peppering it with some wisdom I got from when I took cooking classes on <a href="https://olivesforlunch.com/cooking-class/" target="_blank">Moroccan cuisine</a>  (I have pictures for proof).</p>
 
+<br>
+<br>
 
-## Updates
+## <b>Updates</b>
 <hr width="850">
 <hr style="height:10pt; visibility:hidden;" />
 
