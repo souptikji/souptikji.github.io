@@ -1,11 +1,9 @@
 ---
 layout: page
+title: Areas of Interest 
 permalink: /research/
 ---
 
-## <b>Areas of Interest</b>
-<hr width="850px">
-<hr style="height:10pt; visibility:hidden;" />
 
 <p align="justify">
 Broadly, my interests lie in the realm of Data Infrastructure, Large scale Machine Learning and Distributed Systems. My current work at LinkedIn involves solving numerous distributed computing challenges using Spark and MapReduce. I am working on optimizing a library (originally written in Java MapReduce, we are rewriting this in Spark) which does massive offline aggregate collection and statistics on Petabytes of LinkedIn data. This aggregated data is then either pushed to visualization tools for Data scientists to slice and dice across dimensions, or used for Machine learning based modeling for recommender systems at LinkedIn. This project is giving me a hands-on experience in writing scalable and efficient Spark and MapReduce programs, and also how to debug them. For this project, I also had to write numerous Spark utility functions, my favorite one being a sampling based Volume Estimation Algorithm for Spark dataframes which accurately predicts the data size (with 99\% precision) before materializing the dataframe to HDFS. Previously, I worked on a MapReduce based lifecycle management tool for retention of 6000+ datasets produced in our platform (Gobblin/MapReduce jobs that read user retention overrides or apply the default retention policies). 
