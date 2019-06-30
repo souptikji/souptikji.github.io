@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "Large-scale cluster management at Google with Borg: Review"
+date:   2018-03-05 05:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Google’s Borg system is a cluster manager that runs hundreds of thousands of jobs, from many thousands of different applications, across a number of clusters each with up to tens of thousands of machines. Borg provides three main benefits: it (1) hides the details of resource management and failure handling so its users can focus on application development instead; (2) operates with very high reliability and availability, and supports applications that do the same; and (3) lets us run workloads across tens of thousands of machines effectively.
+</p>
+<p>
+Borg’s users are Google developers and system administrators (site reliability engineers or SREs) that run Google’s applications and services. Users submit their work to Borg in the form of jobs, each of which consists of one or more tasks that all run the same program (binary). Each job runs in one Borg cell, a set of machines that are managed as a unit. It achieves high utilization by combining admission control, efficient task-packing, over-commitment, and machine sharing with process-level performance isolation. It supports high-availability applications with runtime features that minimize fault-recovery time, and scheduling policies that reduce the probability of correlated failures. Borg simplifies life for its users by offering a declarative job specification language, name service integration, real-time job monitoring, and tools to analyze and simulate system behavior. The paper presents a summary of the Borg system architecture and features, important design decisions and lessons learned from a decade of operational experience with it.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  Borg's scheduling algorithm is very well explained and innovative. Scheduling algorithm has two parts: feasibility checking and scoring. Feasibility checking is to find machines meet the task’s constraints. Scoring is to select the most suitable one from all feasible machine. Borg uses a hybrid of worst fit and best fit scoring algorithm which can reduce the amount of stranded resources.<br>
+b.  Borg solves the scalability from both Borgmaster and scheduler sides. In Borgmaster, the elected master spreads its workload to the master replicas. On the other hand, Borg scheduler caches machine score, uses equivalence classes to avoid feasibility checks for another task with identical constraints, and uses relaxed randomization.<br>
+c.  The testing and evaluation experiments are solid. The authors’ experience on running Borg service at scale is a joy to read.
+</p>
+
+## Critical comments
+<p>
+a.  Borg cluster uses one IP per machine. This might lead to port conflicts on a single machine and can complicate binding and service discovery.<br>
+b.  BCL declarative specification language is very cumbersome with around 230 parameters to tune to get performance.<br>
+c.  Borg doesn't support scheduling of multi-job workflows rather just single jobs, which can make writing workload automation flows very hard and complex.
+</p>
+
+
+## Questions
+<p>
+a.  How can we use HyperBand based techniques (used in ML hyper-parameter search) to tune knobs in BCL specification? There are a lot of parameters to tune for.<br>
+b.  It seems like Borg is tuned to Google’s infrastructure. How will it perform outside Google on other workloads?<br>
+c.  How does YARN compare to Borg?
+</p>

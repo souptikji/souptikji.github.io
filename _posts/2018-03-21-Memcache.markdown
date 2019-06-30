@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Scaling Memcache at Facebook: Review"
+date:   2018-03-21 11:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Memcache is a well-known, simple, in memory caching solution. This paper describes how Facebook leverages memcache as a building block to construct and scale a distributed key-value store that supports the world’s largest social network.
+</p>
+<p>
+Memcached API consists of 3 operations – set, get and delete. But each of them does heavy duty distributed systems work which it hides from the user. Memcache is basically another caching layer above the database layer which handles the read load to some extent (by cache serving), thereby eliminating the need to hit DB repeatedly. So whenever client needs to read off a value from the DB layer, the request first goes to memcache. If there is a cache hit (and the value requested has not been overwritten) memcache directly serves it. Otherwise there is a DB layer read. For write requests, it sends the write request to the data store and deletes the invalid data from the cache.
+</p>
+<p>
+Many of the trade-offs discussed in the paper are counter-intuitive to what we might think. The authors discuss the issues faced at different levels of scale and the algorithms and techniques they used to overcome each of these scaling bottlenecks. For instance, one important lesson that the authors show us is how separating cache and persistent storage systems allows them to independently scale them and elegantly handle workload and traffic patterns that exhibit very high read rates. In this paper they also discuss how to support gradual rollout and rollback of new features even if it leads to temporary heterogeneity of feature sets. Features that improve monitoring, debugging and operational efficiency are as important as performance.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The paper considers the read-write scalability challenges of a massive scale in-memory caching system used at Facebook. It discusses ideas like Cold Cluster Warmup to reduce miss rates of new clusters which are very unique.<br>
+b.  The architecture of Memcache separates cache from persistent storage. The implications of this contribution mean that the cache and the persistent storage could be scaled independently which is a really important insight.<br>
+c.  The idea of using load sharing redundant servers help further in load balancing.
+
+</p>
+
+## Critical comments
+<p>
+a.  The Master-slave model for individual region servers might bottleneck scalability. Master is a bottleneck. <br>
+b.  The results are highly customized to Facebook workloads by manual tweaking and manual configuration in the system.<br>
+c.  Adaptive slab allocator concept is not explained properly.
+
+</p>
+
+
+## Questions
+<p>
+a.  Memcache stores Key-Value pairs. How can it be extended to advanced relational DB operations like storing values of different SQL queries?<br>
+b.  What changes need to be made to make it have good performance for writes as opposed to read-heavy operations?<br>
+c.  Discussions on adaptive slab allocator concept.
+</p>

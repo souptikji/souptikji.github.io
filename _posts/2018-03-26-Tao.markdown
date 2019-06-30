@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "TAO: Facebook's Distributed Data Store for the Social Graph: Review"
+date:   2018-03-26 13:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Facebook has more than a billion active users who generate and record a lot of data in the form of posts, likes, comments, etc. The personalized experience of social applications comes from timely, efficient, and scalable access to this flood of data, the social graph. In this paper the authors describe TAO, a geographically distributed, read-optimized, graph data store built at Facebook to power their social graph. The authors talk about the data model and API tailored for serving the social graph using Tao. It is deployed at Facebook, replacing memcache for many data types that fit its model.
+</p>
+<p>
+This paper makes three contributions. First, they characterize a challenging Facebook workload used to the social graph- queries that require high throughput, low latency read access to the large, changing social graph. Second, they describe the objects and associations data model for Facebook’s social graph, which is similar to nodes and edges in normal graph terminology. Lastly, they talk about the detailed architecture of Tao.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  Tao’s performance of 2 billion QPS is really impressive.<br>
+b.  The architecture of Tao separates caching from persistent storage. The implications of this contribution mean that the cache and the persistent storage could be scaled independently which is a really important insight.<br>
+c.  I really liked the design of the smart caching layer (leaders and followers) which reminded me of L1/L2 caches. This distributed cache management provides perfect provides read-my-write consistency and also prevents thundering herds problem.
+</p>
+
+## Critical comments
+<p>
+a.  TAO supports a restricted graph API when compared to LinkedIn's LIquid API. LIquid provides advanced semantics like GQL string to filter an edge based on the attributes, sortOrder for edges (based on time created or perceived importance), NetworkByDegree, NetworkSizes (the number of reachable nodes by traversing outward one more edge) and GraphDistances (finds the distance between two members). An added advantage for this is that many of the queries are repeated so the system can cache aggressively. So why didn’t Tao focus on high-speed queries?<br>
+b.  Since Graph queries are very common why isn’t there a focus on in-memory caching of objects (although it might lead to higher JVM footprint and maybe longer GC pauses).<br>
+c.  The paper doesn’t talk about query parallelization.
+</p>
+
+
+## Questions
+<p>
+a.  Is it possible to combine batch processing with online serving in a single graph system?<br>
+b.  Backend data store is MySQL for Tao. Why wasn’t a specialized graph database used for this? Tao looks like mostly a caching layer to me. Why was MySQL used as a data store and not any KV based store like Redis etc?<br>
+c.  How can we enable query parallelization in Tao?
+</p>

@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "Spanner: Google's Globally-Distributed Database: Review"
+date:   2018-03-19 04:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Spanner is Google’s scalable, multi-version, globally distributed, and synchronously-replicated database. It is the first system to distribute data at global scale and support externally consistent distributed transactions. This paper describes how Spanner is structured, its feature set, the rationale underlying various design decisions, and a novel time API that exposes clock uncertainty. This paper describes how the data is distributed in spanservers, which themselves contain data structures called tablets, which are stored as files in a distributed file system called Colossus (which is GFS 2.0). It describes the data model, which allows hierarchy of tables, where the parent table’s rows are interleaved with the children tables’. The biggest innovation of Spanner is its implementation of timestamp management and linear serializability of transactions via a trusted global time, a system they call TrueTime. TrueTime represents timestamps as an interval, the timestamp +/- some uncertainty concerning the true time.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The biggest contribution of the paper is TrueTime. For distributed transactions, a major pain point is providing the concept of wall-clock time to transactions and a lot of work has been done in this area using logical clocks by Lamport et al. But TrueTime provides linear serializability of transactions via a trusted global time system which is really innovative.<br>
+b.  There is a strong use of data locality using the concept of buckets. Data are stored in tablets, which are also classified into different “buckets”. Applications can control the locality of data by carefully assigning keys to the data, thereby potentially lowering latency.<br>
+c.  Despite being a predominantly systems paper, the work has a lot of theoretical underpinnings which is impressive. The authors have worked through the difficult concepts of externally consistent transactions, and providing global time. Also the evaluation methodology is pretty good, I especially liked the part where they give a good idea of the scalability of the 2 phase commit protocol.
+</p>
+
+## Critical comments
+<p>
+a.  Spanner doesn’t support the full SQL semantics which might be useful for applications like Ads databases (given in the paper). For instance, it doesn’t support secondary indices which are crucial for performance critical operations. <br>
+b.  The system relies on clock time for ordering its transactions. Agreed that TrueTime is very robust and well thought through- but what will happen in case of clock failure or incorrect working of clocks in local machines (maybe they have some clock skew?)<br>
+c.  Write operations use Paxos for consensus, which provides strong consistency but at the cost of latency increase for each transaction.<br>
+</p>
+
+
+## Questions
+<p>
+a.  How is the performance of Spanner for advanced relational DB operations like JOINs?<br>
+b.  What will happen to TrueTime (and distributed Txns) in case of clock failure or incorrect working of clocks in local machines (maybe they have some clock skew?)<br>
+c.  How can we do data sharding in Spanner to achieve high read/write throughput?
+</p>

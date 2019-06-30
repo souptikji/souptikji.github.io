@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "Bigtable: A Distributed Storage System for Structured Data: Review"
+date:   2018-03-07 06:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. It serves a multitude of applications placing different demands both in terms of data size (from URLs to web pages to satellite imagery) and latency requirements (from backend bulk processing to real-time data serving). The data model of BigTable is very simple and intuitive - A Bigtable is a sparse, distributed, persistent multidimensional sorted map. The map is indexed by a row key, column key, and a timestamp; each value in the map is an un-interpreted array of bytes. This logical table is divided into several SSTable file according to tablet index range. The file is stored in GFS. Each SSTable also has its own internal block index to speed up search. There are three components in Bigtable, client library, master server and tablet servers. The master assign tablets to tablet servers, keep track of them and split or merge tablets according to their sizes. Tablet is used to process write/read requirements. Client library are used to provide API to contract with servers and cache temporary data. The tables are in three hierarchies. Root table describes the location of metadata table, and metadata describes the user tables' locations.
+</p>
+
+
+
+## What I liked about this paper
+<p>
+a.  There is a 3-level hierarchical lookup scheme for tablets- root table describes the location of metadata table, and metadata describes the user tables' locations. This is a very interesting structure where clients can aggressively cache and pre-fetch data to reduce the bottleneck on the root table.<br>
+b.  There is a great description of using compression for storing data from various timestamps, which makes perfect sense since data might not be changing drastically between timestamps. BMDiff and Zippy algorithms make for some interesting reading.<br>
+c.  Another great idea I found from the paper was using locality groups for Column families. So the paper mentions that column families can be assigned to a locality group is used to organize underlying storage representation for performance. Thus scans over one locality group are O(bytes_in_locality_group), not O(bytes_in_table) thereby making it possible to store metadata and webpage data in different locality groups and still ending up getting good lookup performance.
+</p>
+
+## Critical comments
+<p>
+a.  The paper doesn’t talk about hotspots mitigation. If a lot of services are all making read calls to the same data cell then it might be a good idea to replicate it elsewhere. <br>
+b.  BigTable API doesn’t show any advanced data processing operations like JOINs. Does that mean that users have to write these algorithms by themselves?<br>
+c.  BigTable Master is still the single point of failure here.
+</p>
+
+
+## Questions
+<p>
+a.  The paper mentions that some BigTable cells are a cluster of 10-20 machines while some are a massive cluster of 1000s of machines. What are some of the tradeoffs for having a large cell vs a small cell size?<br>
+b.  How could we incorporate advanced data processing operations like JOINs on BigTable?<br>
+c.  Having a 3-level hierarchical lookup scheme for tablets is great, especially if used with client side caching which will reduce the load on the root table. But are there any other ways we could design this? Maybe something like the gossip protocol?
+</p>

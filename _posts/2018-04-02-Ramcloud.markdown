@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "Log-structured Memory for DRAM-based Storage: Review"
+date:   2018-04-02 12:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+RAMCloud is a high speed storage system for network efficient data centers. DRAM is the main storage device, and it is much faster compared to disk. Logging has been used for decades to ensure durability and consistency in storage systems. However, logging also makes sense as a technique for managing the data in DRAM. Log-structured memory takes advantage of the restricted use of pointers in storage systems to eliminate the global memory scans that fundamentally limit existing garbage collectors. Traditional memory allocation mechanisms like Malloc are not suitable for DRAM-based storage systems because they use memory inefficiently and don't adapt to changing access patterns. RAMCloud instead uses a log-structured approach which provides high utilization at high performance. The RAMCloud implementation of log- structured memory uses a two-level cleaning policy, which conserves disk bandwidth and improves performance up to 6x at high memory utilization. The cleaner runs concurrently with normal operations and employs multiple threads to hide most of the cost of cleaning. The RAMCloud storage system implements a unified log-structured mechanism both for active information in memory and backup data on disk.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  Design and performance of RAMCloud is really impressive. This is probably the only system I have come across that targets low latency reads/writes, fast recovery from failures and provides strong consistency. Most systems focus on intensive reads or intensive writes but RAMCloud targets to optimize both read and write bandwidths.<br>
+b.  The innovative use of multiple replica masters to reduce the failure recovery time without affecting network bandwidth is unique and interesting.<br>
+c.  The testing and evaluation experiments are solid. The authors’ experiments on performance under changing loads and access patterns should be used whenever we build a new storage system.
+</p>
+
+## Critical comments
+<p>
+a.  The coordinator is single point of failure in the system. It can limit both reliability as well as scalability.<br>
+b.  The data model provided by RAMCloud is limited. It would be better for application developers if it could give support a richer data model including transactions, indexes etc.<br>
+c.  What happens if the recovery master crashes during recovery? The paper doesn’t talk about cascading failures.
+</p>
+
+
+## Questions
+<p>
+a.  How will the system design change in the scenario when NVRAMs (nonvolatile RAM) become prevalent? <br>
+b.  Can we use Machine learning to give us better data placement algorithms for RAMCloud?<br>
+c.  How can we handle cascading failures in RAMCloud?
+</p>
