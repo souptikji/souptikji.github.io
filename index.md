@@ -13,8 +13,8 @@ Mountain View (CA) <br>
 <em>LinkedIn: </em><a href="https://www.linkedin.com/in/souptiksen/">souptiksen</a> <br>
 <em>Facebook: </em><a href="https://www.facebook.com/souptikji">souptikji</a> <br>
 <!-- <p><a href="http://doodle.com/dhawaljoh" target="_blank">Meet me!</a> | <a href="http://flask.io/yoUm1" target="_blank">Assign me a task!</a> (please let me know you've added something!)</p> -->
-<hr width="600px">
 ## About Me
+<hr width="275px">
 <hr style="height:50pt; visibility:hidden;" />
 
 <a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
