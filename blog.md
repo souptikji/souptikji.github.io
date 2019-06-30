@@ -4,7 +4,7 @@ title: Blog
 permalink: /blog/
 ---
 
-A repository of reviews of the research papers I found interesting. A lot of reviews are dated (2018) and reflected my views when I was still at CMU. However thanks to a year of working with some of the smartest top minds of Data systems at LinkedIn, I now have a new found perspective on how to think about systems at scale. I plan to re-review some of the major ones, and also add reviews to some new papers I have been reading (mostly on large scale data and machine learning systems). To rephrase the words of our incredibly talented Sr. Staff Engineer <b> Maneesh Varshney</b> - <i>"Classic papers are like good movies, Souptik. Just like you keep watching the same movies time and again, make a habit of re-reading good books and research papers to get a new found perspective on them."</i>
+A repository of reviews of the research papers I found interesting. A lot of reviews are dated (2018) and reflected my views when I was still at CMU. However thanks to a year of working with some of the smartest minds of Data systems at LinkedIn, I now have a new found perspective on how to think about systems at scale. I plan to re-review some of the major ones, and also add reviews to some new papers I have been reading (mostly on large scale data and machine learning systems). To rephrase the words of our incredibly talented Sr. Staff Engineer <b> Maneesh Varshney</b> - <i>"Classic papers are like good movies, Souptik. Just like you keep watching the same movies time and again, make a habit of re-reading good books and research papers to get a new found perspective on them."</i>
 <br>
 
 <ul class="listing">
