@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Xen and the Art of Virtualization: Review"
+date:   2018-04-16 19:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+Numerous systems have been designed which use virtualization to subdivide the ample resources of a modern computer. Some require specialized hardware, or cannot support commodity operating systems. Support for full virtualization was never part of the x86 architectural design. Certain supervisor instructions must be handled by the VMM for correct virtualization, but executing these with insufficient privilege fails silently rather than causing a convenient trap. Efficiently virtualizing the x86 MMU is also difficult. These problems can be solved, but only at the cost of increased complexity and reduced performance. Some target 100% binary compatibility at the expense of performance. Others sacrifice security or functionality for speed. Few offer resource isolation or performance guarantees; most provide only best-effort provisioning, risking denial of service. Apart from the above, there are other arguments against full virtualization. In particular, there are situations in which it is desirable for the hosted operating systems to see real as well as virtual resources: providing both real and virtual time allows a guest OS to better support time-sensitive tasks, and to correctly handle TCP timeouts and RTT estimates, while exposing real machine addresses allows a guest OS to improve performance by using super pages or page coloring. This paper comes up with the idea of Paravirtualization- that is trade off small changes to the guest OS for big improvements in performance and VMM simplicity. It avoids the drawbacks of full virtualization by presenting a virtual machine abstraction that is similar but not identical to the underlying hardware — an approach which has been dubbed paravirtualization. This promises improved performance, although it does require modifications to the guest operating system. It is important to note, however, that it does not require changes to the application binary interface (ABI), and hence no modifications are required to guest applications.
+</p>
+<p>
+Xen introduces the idea of a hypervisor, a small piece of control software similar to the VMM running below all the operating systems running on the machine. Much of the typical VMM functionality is moved to control plane software that runs inside a Xen guest. The authors discuss 4 design principles-<br>
+a.  "Support for unmodified application binaries is essential, or users will not transition to Xen. Hence we must virtualize all architectural features required by existing standard ABIs."<br>
+b.  "Supporting full multi-application operating systems is important, as this allows complex server configurations to be virtualized within a single guest OS instance."<br>
+c.  "Paravirtualization is necessary to obtain high performance and strong resource isolation on uncooperative machine architectures such as x86."<br>
+d.  "Even on cooperative machine architectures, completely hiding the effects of resource virtualization from guest OSes risks both correctness and performance."<br>
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The biggest contribution of the paper is the idea of Paravirtualization- trading off small changes to the guest OS for big improvements in performance and VMM simplicity with no changes required for the application binary interface (ABI), and hence no modifications required for guest applications.<br>
+b.  Xen also introduces an excellent idea for managing memory in virtualization. The approach taken is that each guest OS can allocate its own pages when needed, but updates need to be verified by Xen.<br>
+c.  Xen supporting full multi-application operating systems thereby allowing complex server configurations to be virtualized within a single guest OS instance.
+</p>
+
+## Critical comments
+<p>
+a.  Although paravirtualization promises improved performance, it does require modifications to the guest operating system. This is not a very easy thing to do, since there are so many OSes out there, and new ones coming out very frequently.<br>
+b.  The requirement of every privileged instruction being validated by Xen is a lot of performance overhead on the guest OS.<br>
+c.  The paper doesn’t clarify the concept of data transfer using I/O rings.
+</p>
+
+
+## Questions
+<p>
+a.  Are there any workarounds for paravirtualization that don’t involve modifying the guest OSes?<br>
+b.  How does the data transfer (I/O rings) between guest OSes work in the system?<br>
+c.  How does scheduling works amongst various guest OSes?
+</p>

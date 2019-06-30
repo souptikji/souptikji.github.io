@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "The Evolution of an x86 Virtual Machine Monitor: Review"
+date:   2018-04-11 16:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+A virtual machine (VM) is an emulation of a computer system. Virtual machines are based on computer architectures and provide functionality of a physical computer. Their implementations may involve specialized hardware, software, or a combination. Over the past twelve years, we have witnessed x86 virtualization proceed from a technical curiosity to the foundation for a new way of organizing data centers and information technology. To facilitate this, the VMM evolved from a 32-bit software system focusing on desktop workloads to a 64 bit, vSMP-capable platform that can run even the most challenging server workloads. This paper takes us through the history of virtualization over the years. While large changes were implemented over the years and today’s VMM shares little code with the one that started it all, the overall design remains minimal and appropriate for the task at hand. There are 2 challenges stand out in virtualization-  1) VMs must continue to grow with the workloads being deployed. This means keeping up with the virtual version of Moore’s law by adding VCPUs and memory at the rate the corresponding physical resources, i.e., cores and RAM, grow. 2) VM designers must further expand the types of workloads applicable to virtualization, including latency- and time-sensitive workloads, developer workloads (e.g., profilers and debuggers), and workloads written in new language frameworks, perhaps spanning multiple VMs. The 2nd half of the paper shows how the focus shifted from virtualizing single processor machines to server-based architectures and multi- processor machines, 64-bit architectures
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The authors take us through some the challenges they had to face while developing virtualization for the x86 model which are pretty fascinating to read about. For instance, the authors talk about the issue that in x86 some privileged instructions don't generate a trap (like popf), and people thought it would be impossible to virtualize x86 in this case. However, VMWare engineers stood up to the challenge and solved it by the concept of Binary Translation which can be used to intercept any guest instruction and modify the execution.<br>
+b.  In case of a guest OS failure, VMWare software immediately makes an update to the page tables of the guest OS, even at the cost of having the complexity that the host OS will remain inconsistent. That is, when the MMU receives a notification that the guest has modified a page table, instead of invalidating the shadow, the MMU immediately populates it with an updated entry. Now the guest can access the memory addresses mapped by the page table, without incurring a hidden fault. A VCPU using eager validate appears to have a TLB that always drops and reloads entries immediately when the in-memory page table is modified. The concept of "eager validate" can help reduce page faults in VMMs and is pretty interesting.<br>
+c.  The discussion about the various race conditions in multithreaded code is enlightening.
+</p>
+
+## Critical comments
+<p>
+a.  The paper doesn’t give experimental evaluation evidence on how well the ideas discussed in the paper perform.<br>
+b.  The paper doesn’t give background about many OS concepts being referred in the discussion and is not very accessible to someone without OS knowledge.<br>
+c.  The paper doesn’t talk about security amongst guest OSes.
+</p>
+
+
+## Questions
+<p>
+a.  What is the difference between the concept of virtualization and containers?<br>
+b.  How does the security between guest OSes work in the system?<br>
+c.  What resources can be shared between the virtualized machine and guest OSes?
+</p>
