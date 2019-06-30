@@ -61,6 +61,9 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
     </tr>
 </table>
 
+<br>
+<br>
+
 ## <b>Mountain View Computer Science Reading Group</b>
 <hr width="850px">
 <hr style="height:10pt; visibility:hidden;" />
