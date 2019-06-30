@@ -33,9 +33,6 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
 
 <p align="justify" style="max-width:575px">I was born and raised in Bhilai, a beautiful town in Central India which is home to India's largest integrated <a href="https://www.wikiwand.com/en/Bhilai_Steel_Plant" target="_blank">Steel plant</a>. I have a bit of wanderlust and love travelling and going on hikes, thereby exploring different environments, cultures and cuisine. My favourite getaways are places with scenic natural beauty (next on my hitlist is driving along the <a href="https://www.nationalgeographic.com/travel/road-trips/california-pacific-coast-road-trip/" target="_blank"> Pacific Coast highway</a>). On weekends, I can be found catching the latest Bollywood masala movie with friends, swimming at the <a href="https://www.calsportscenter.com/activities/dropin/open-swim/" target="_blank">California Sports Center</a> or simply lazing around in my bed (with an UberEats delivery next to me :P). I love to critique (uh... eat) food- passing judgements on how it could be better (thanks to my years of diligent watching Gordon Ramsay rip apart elaborate dishes on <a href="https://www.wikiwand.com/en/MasterChef_(American_TV_series)" target="_blank">Masterchef, USA</a>), peppering it with some wisdom I got from when I took cooking classes on <a href="https://olivesforlunch.com/cooking-class/" target="_blank">Moroccan cuisine</a>  (I have pictures for proof).</p>
 
-<p align="justify" style="max-width:575px">Someone once told me that the best way to learn something is to learn together in a group of like-minded individuals. Since everyone will have their own unique understanding of the same concept (which is shaped by their knowledge and experiences) we get to know parallel perspectives on the same problem. To foster group learning, I run a Computer Science Reading Group in Mountain View, CA where we read classic books and papers on Distributed computing, Data mining and Machine Learning. We usually meet on Saturdays and Sundays. If you want to relearn challenging CS concepts in a fun setting, making some cool friends on the way, shoot me an email at <a href="mailto:susen@linkedin.com">susen@linkedin.com</a>.</p>
-
-
 
 ## Updates
 <hr width="850">
@@ -63,3 +60,9 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
     <td>Software Engineer Intern with <a href="https://engineering.linkedin.com/teams/data" target="_blank">LinkedIn's Data team</a> in Sunnyvale, CA.</td>
     </tr>
 </table>
+
+## Mountain View Computer Science Reading Group
+<hr width="850px">
+<hr style="height:10pt; visibility:hidden;" />
+<p align="justify">Someone once told me that the best way to learn something is to learn together in a group of like-minded individuals. Since everyone will have their own unique understanding of the same concept (which is shaped by their knowledge and experiences) we get to know parallel perspectives on the same problem. To foster group learning, I run a Computer Science Reading Group in Mountain View, CA where we read classic books and papers on Distributed computing, Data mining and Machine Learning. We usually meet on Saturdays and Sundays at LinkedIn's Mountain View office at 700, E Middlefield Rd. If you want to learn (or re-learn) challenging CS concepts in a fun setting, making some cool friends on the way, shoot me an email at <a href="mailto:susen@linkedin.com">susen@linkedin.com</a>.</p>
+
