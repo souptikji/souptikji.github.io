@@ -17,14 +17,12 @@ Mountain View (CA) <br>
 
 <hr style="height:10pt; visibility:hidden;" />
 
-
+<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 <a href="http://www.pdl.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" width="275" align="right"></a>
 
 ## About Me
 
 <!-- <a href="http://www.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" style="width:275px;" align="right"></a> -->
-
-<a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 
 <p align="justify" style="max-width:575px">
 I am a Data Infrastructure Engineer at LinkedIn, building and scaling our Data Computation Platform to support LinkedIn's Data Science and Machine Learning needs. Our platform has democratized doing scalable data science to hundreds of engineers, data scientists and data analysts while preserving trust in data. We compute ~2000 Hadoop workflows, serving over 20K metrics (as of March 2019) with varying time granularities (monthly, weekly, daily, and hourly) supporting a wide range of compute engines like Spark, Hive and Pig.
