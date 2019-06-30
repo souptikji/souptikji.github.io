@@ -40,7 +40,7 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
 
 
 ## Research Interests
-<hr width="600px">
+<hr width="850px">
 <hr style="height:10pt; visibility:hidden;" />
 
 <p align="justify">
@@ -53,8 +53,8 @@ In Summer 2017, I was a Software Engineering intern with LinkedIn's <a href="htt
 </p>
 
 ## Updates
-<hr width="600px">
-<hr style="height:20pt; visibility:hidden;" />
+<hr width="850">
+<hr style="height:10pt; visibility:hidden;" />
 
 <table style="white-space: nowrap;">
 
