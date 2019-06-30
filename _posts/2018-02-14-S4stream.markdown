@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "S4: Distributed Stream Computing Platform: Review"
+date:   2018-02-15 05:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+S4 is a general-purpose, distributed, scalable, partially fault-tolerant, pluggable platform that allows programmers to easily develop applications for processing continuous unbounded streams of data. This paper describes the architecture of the system as well as gives the Machine learning application use cases which are implemented at Yahoo on the top of S4. S4 API is based on the actor model where Processing Elements (PE) are the meat of the data processing framework. Data events are routed with affinity to Processing Elements (PEs), which consume the events and do one or both of the following: (1) emit one or more events which may be consumed by other PEs, (2) publish results. S4 uses Zookeeper to coordinate between the nodes.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The Great stream based abstraction for Application developers who can simply write single-machine code (which actually runs on multiple machines). The programmer doesn't have to worry about multithreading or writing distributed code.<br>
+b.  No single point of failure. All the PE nodes are the same and there is no need for any master node here.<br>
+c.  Minimizes latency by storing data in-memory in processing nodes and thus avoiding performance bottlenecks. Thus eliminates the disk bottleneck required by MapReduce jobs but has the network bottleneck.
+</p>
+
+## Critical comments
+<p>
+a.  No addition/removal of nodes is possible in running cluster. It can limit elasticity. <br>
+b.  Supports only JVM based languages (Java/Scala). C++/Go support is necessary in today’s world.<br>
+c.  S4 uses a push model, where events are pushed to the next PE as fast as possible. If receiver PE buffers get full then events are dropped, and this can happen at any stage in the pipeline.
+</p>
+
+
+## Questions
+<p>
+a.  S4 uses a push model, where events are pushed to the next PE as fast as possible. If receiver PE buffers get full then events are dropped, and this can happen at any stage in the pipeline. How can we modify it to be push model, wherein each PE pulls event from its source(s)?<br>
+b.  A comment I came across on a blog was "Garbage collection of PE is a major challenge for the platform". Can you elaborate on this?<br>
+c.  What are the difference between S4 and the more widely used (and recent) services like Kafka, Spark streaming?
+
+</p>
