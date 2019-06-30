@@ -47,8 +47,8 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
 <table style="white-space: nowrap;">
 
     <tr>
-    <td width="90"><b>New!</b></td>
-    <td>Summer 2018 at Parallel Data Lab, working on <a href="http://www.andrew.cmu.edu/user/gaurij/Research.html" target="_blank">Distributed Machine Learning</a></td>
+    <td width="90"><b>September 2018</b></td>
+    <td>Started working on the Analytics Infrastructure team at <a href="https://engineering.linkedin.com/teams/data" target="_blank">LinkedIn</a> in Mountain View (CA). Couldn't be more excited ! </td>
     </tr>
 
     <tr>
