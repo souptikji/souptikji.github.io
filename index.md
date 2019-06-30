@@ -61,7 +61,7 @@ I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon U
     </tr>
 </table>
 
-## Mountain View Computer Science Reading Group
+## <b>Mountain View Computer Science Reading Group</b>
 <hr width="850px">
 <hr style="height:10pt; visibility:hidden;" />
 <p align="justify">Someone once told me that the best way to learn something is to learn together in a group of like-minded individuals. Since everyone will have their own unique understanding of the same concept (which is shaped by their knowledge and experiences) we get to know parallel perspectives on the same problem. To foster group learning, I run a Computer Science Reading Group in Mountain View, CA where we read classic books and papers on Distributed computing, Data mining and Machine Learning. We usually meet on Saturdays and Sundays at LinkedIn's Mountain View office at 700, E Middlefield Rd. If you want to learn (or re-learn) challenging CS concepts in a fun setting, making some cool friends on the way, shoot me an email at <a href="mailto:susen@linkedin.com">susen@linkedin.com</a>.</p>
