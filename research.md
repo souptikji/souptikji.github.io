@@ -1,10 +1,9 @@
 ---
 layout: page
-title: Research 
 permalink: /research/
 ---
 
-## Areas of Interest
+## <b>Areas of Interest</b>
 <hr width="850px">
 <hr style="height:10pt; visibility:hidden;" />
 
