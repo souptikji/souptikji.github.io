@@ -18,7 +18,6 @@ Mountain View (CA) <br>
 <hr style="height:10pt; visibility:hidden;" />
 
 <a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
-<a href="http://www.pdl.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" width="275" align="right"></a>
 
 ## About Me
 
@@ -28,6 +27,7 @@ Mountain View (CA) <br>
 I am a Data Infrastructure Engineer at LinkedIn, building and scaling our Data Computation Platform to support LinkedIn's Data Science and Machine Learning needs. Our platform has democratized doing scalable data science to hundreds of engineers, data scientists and data analysts while preserving trust in data. We compute ~2000 Hadoop workflows, serving over 20K metrics (as of March 2019) with varying time granularities (monthly, weekly, daily, and hourly) supporting a wide range of compute engines like Spark, Hive and Pig.
 </p>
 
+<a href="http://www.pdl.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" width="275" align="right"></a>
 <p align="justify" style="max-width:575px">
 I graduated from <a href="http://www.cmu.edu/" target="_blank">Carnegie Mellon University, Pittsburgh (PA)</a> with a Masters (MS) in Computer Science (awarded by the Information Networking Institute) in May 2018. I was a Graduate Research Assistant (my old PDL page <a href="http://www.pdl.cmu.edu/PEOPLE/souptik.shtml" target="_blank">here</a>) at the <a href="http://www.pdl.cmu.edu/" target="_blank">Parallel Data Lab</a>, which is an <a href="http://www.pdl.cmu.edu/about.shtml" target="_blank">Interdisciplinary Systems Research Centre</a>at CMU advised by <a href="http://www.andrew.cmu.edu/user/gaurij/" target="_blank">Prof. Gauri Joshi</a>, working on the <a href="http://www.andrew.cmu.edu/user/gaurij/Research.html" target="_blank">Distributed Machine Learning</a> project, from 2017-2018. In 2017, I spent an awesome summer at <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>, Sunnyvale working with the <a href="https://engineering.linkedin.com/teams/data" target="_blank">Big Data Engineering team</a> on Hive to SparkSQL translation. Previously, I graduated from <a href="https://www.wikiwand.com/en/Birla_Institute_of_Technology,_Mesra" target="_blank">Birla Institute of Technology</a> with a Bachelors of Engineering (BE) in 2013, followed by a brief stint as a Software Engineer at <a href="https://www.ca.com/us.html" target="_blank">CA Technologies</a> in their Hyderabad and Toronto offices.</p> 
 
