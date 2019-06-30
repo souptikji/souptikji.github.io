@@ -19,7 +19,7 @@ Mountain View (CA) <br>
 
 ## <b>About Me</b>
 <hr width="850px">
-<hr style="height:20pt; visibility:hidden;" />
+<hr style="height:10pt; visibility:hidden;" />
 
 <a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 
