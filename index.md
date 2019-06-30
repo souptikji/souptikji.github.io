@@ -5,7 +5,7 @@ layout: default
 <!-- git add . | git commit -m "changes again6" | git push myorigin-->
 
 # Souptik Sen  <a href="/images/linkedin-profile.png" target="_blank"><img src="images/linkedin-profile.png" alt="Souptik Sen" style="width:275px;" align="right"></a>
-Software Engineer - Data Analytics Infrastructure <br>
+Software Engineer - Data Infrastructure <br>
 <a href="https://engineering.linkedin.com/teams/data" target="_blank">LinkedIn Inc.</a> <br>
 Mountain View (CA) <br>
 
@@ -15,7 +15,7 @@ Mountain View (CA) <br>
 <!-- <p><a href="http://doodle.com/dhawaljoh" target="_blank">Meet me!</a> | <a href="http://flask.io/yoUm1" target="_blank">Assign me a task!</a> (please let me know you've added something!)</p> -->
 <hr width="600px">
 
-<hr style="height:10pt; visibility:hidden;" />
+<hr style="height:50pt; visibility:hidden;" />
 
 <a href="https://engineering.linkedin.com/teams/data" target="_blank"><img src="images/linkedin.png" alt="CMU" width="275" align="right"></a>
 
@@ -24,7 +24,7 @@ Mountain View (CA) <br>
 <!-- <a href="http://www.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" style="width:275px;" align="right"></a> -->
 
 <p align="justify" style="max-width:575px">
-I am a Data Infrastructure Engineer at LinkedIn, building and scaling our Data Computation Platform to support LinkedIn's Data Science and Machine Learning needs. Our platform has democratized doing scalable data science to hundreds of engineers, data scientists and data analysts while preserving trust in data. We compute ~2000 Hadoop workflows, serving over 20K metrics (as of March 2019) with varying time granularities (monthly, weekly, daily, and hourly) supporting a wide range of compute engines like Spark, Hive and Pig.
+I am a Data Infrastructure Engineer at <a href="https://engineering.linkedin.com/teams/data" target="_blank">LinkedIn, Mountain View (CA)</a>, building and scaling our Data Computation Platform to support LinkedIn's Data Science and Machine Learning needs. Our platform has democratized doing scalable data science to hundreds of engineers, data scientists and data analysts while preserving trust in data. We compute ~2000 Hadoop workflows, serving over 20K metrics (as of March 2019) with varying time granularities (monthly, weekly, daily, and hourly) supporting a wide range of compute engines like Spark, Hive and Pig.
 </p>
 
 <a href="http://www.pdl.cmu.edu/" target="_blank"><img src="images/cmu-logo.png" alt="CMU" width="275" align="right"></a>
