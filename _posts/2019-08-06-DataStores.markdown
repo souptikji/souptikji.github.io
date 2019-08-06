@@ -5,16 +5,20 @@ date:   2019-08-06 05:00:00
 author: Souptik Sen
 ---
 
-# Dillinger
+# Core topic of discussion
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+ Today we discussed Chapter 3 from Martin Kleppman's book *"Designing Data Intensive Applications"* . Fundamentally a data store needs to do two things: when you give it some data, it should store the data, and when you ask it again later, it should give the data back to you. This was the focus of our discussion- the various data structures that speed up writing to and querying from a database. We learnt about 2 families of datastructures used for indexing - Log based and page based 
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+# Log based indexing
 
-  - Type some Markdown on the left
-  - See HTML in the right
-  - Magic
+We read about Hash index and SStable based indexing (LSM trees). Main point - useful for write heavy applications, but reads might be slower. The idea behind Hash index is to store a mapping of keyset in memory pointing to the value reference (which might be a row or a json file whatever). The idea behind SSTables is usage of sparse indices thanks to sorting the key set, also good for lookups.
 
-# New Features!
+# Page based indexing
+
+We read about BTrees. Like SSTables, B-trees keep key-value pairs sorted by key, which allows efficient key- value lookups and range queries. While LSM-trees are typically faster for writes, whereas B-trees are thought to be faster for reads.
+
+#BTrees vs LSM trees comparison
+
+Please refer to the below diagram for our comparison points between LSM trees and B Trees-
+![](https://www.dropbox.com/s/iv1jntiococ2795/WhatsApp%20Image%202019-08-06%20at%201.44.21%20AM%20%281%29.jpeg)
