@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "MTV CS Reading Group: Data structures that power your database"
+date:   2019-08-06 05:00:00
+author: Souptik Sen
+---
+
+## Summary
+<p>
+The paper introduces Chubby which is a lock service provided to a large number of clients for access control and coordination. It’s made of 5 machines out of which 1 is master. The write operations require ACK from a quorum of machines and reads only need to access the current master. Basically the Chubby Master runs Paxos on the cluster to decide writes, and serves reads from itself. This lets Chubby provide coarse-grained locking services, where locks are expected to be held for long periods of time. 
+</p>
+<p>
+The paper also talks about the other features of Chubby: failover, cache consistency, event notifications. If the Master fails, then there is a leader election in chubby cell. Client caching is also an essential part of reducing load on the Chubby master, but the master has to synchronously invalidate caches on writes. Event notifications can also be used to watch files for certain events: modification, master failover, etc. 
+</p>
+<p>
+The paper also talks about the use cases of Chubby at Google eg. name server with DNS. The paper talks about some design decisions which proved to be incorrect in the long run. Some features of the system such as provisions for lock caching were not used later on. Also the authors failed to anticipate future misuse and abuse of the system and its general misunderstanding by its users.
+</p>
+
+
+## What I liked about this paper
+<p>
+a.  The paper talks about the unexpected failures the authors had to deal with. This is a valuable insight into how a large scale system is built, especially taking us through some of the early design choices they made which were mistakes and how this affected them.<br>
+b.  Chubby shows a general way to provide synchronization service to different applications by implementing Paxos, which is independent to applications. This concept of 'synchronization as a service' is really unique.<br>
+c.  The authors take us through the use cases of Chubby at Google, some of which are quite surprising. For instance, Chubby’s most popular use inside Google turned out to be as a name service and not as a lock service.
+</p>
+
+## Critical comments
+<p>
+a.  Chubby master is a bottleneck of the overall performance because all the operations, read or write, have to go through the master.<br>
+b.  All locks are accessed by the file system, but there is no discussion about security. There should be some checks to ensure that only the authorized process can get the lock.<br>
+c.  Chubby is not suitable for fine grained locking.
+</p>
+
+
+## Questions
+<p>
+a.  Chubby master is a bottleneck of the overall performance because all the operations, read or write, have to go through the master. How can we change the protocol to have multiple active-active masters?<br>
+b.  How could we incorporate security measures into Chubby? All locks are accessed by the file system, but there is no discussion about security. There should be some checks to ensure that only the authorized process can get the lock.<br>
+c.  How can we change Chubby to make it suitable for fine grained locking as well?
+</p>
