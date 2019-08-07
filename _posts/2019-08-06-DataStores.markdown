@@ -21,4 +21,5 @@ We read about BTrees. Like SSTables, B-trees keep key-value pairs sorted by key,
 # BTrees vs LSM trees comparison
 
 Please refer to the below diagram for our comparison points between LSM trees and B Trees-
-<a href="images/btreevslsm.jpeg" target="_blank"><img src="images/btreevslsm.jpeg" alt="Fig 1" style="width:275px;" align="center"></a>
+![](btreevslsm.jpeg)
+
