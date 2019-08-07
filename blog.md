@@ -4,7 +4,7 @@ title: Blog
 permalink: /blog/
 ---
 
-A repository of reviews of the research papers I found interesting. A lot of reviews are dated (2018) and reflected my views when I was still at CMU. However thanks to a year of working with some of the smartest minds of Data systems at LinkedIn, I now have a new found perspective on how to think about systems at scale. I plan to re-review some of the major ones, and also add reviews to some new papers I have been reading (mostly on large scale data and machine learning systems). This blog also contains our technical discussions from Mountain View CS Reading Group.s
+A repository of reviews of the research papers I found interesting. A lot of reviews are dated (2018) and reflected my views when I was still at CMU. However thanks to a year of working with some of the smartest minds of Data systems at LinkedIn, I now have a new found perspective on how to think about systems at scale. I plan to re-review some of the major ones, and also add reviews to some new papers I have been reading (mostly on large scale data and machine learning systems). This blog also contains our technical discussions from Mountain View CS Reading Groups.
 <br>
 
 <ul class="listing">
